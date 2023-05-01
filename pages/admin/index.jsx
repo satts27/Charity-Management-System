@@ -9,7 +9,7 @@ const Index = ({ charitys }) => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        "http://localhost:3000/api/charitys/" + id
+        `${process.env.NEXT_PUBLIC_DOMAIN_URL}/api/charitys` + id
       );
       setCharityList(charityList.filter((charity) => charity._id !== id));
     } catch (err) {
@@ -68,7 +68,9 @@ const Index = ({ charitys }) => {
 };
 
 export const getServerSideProps = async () => {
-  const charityRes = await axios.get("http://localhost:3000/api/charitys");
+  const charityRes = await axios.get(
+    `${process.env.NEXT_PUBLIC_DOMAIN_URL}/api/charitys`
+  );
   return {
     props: {
       charitys: charityRes.data,

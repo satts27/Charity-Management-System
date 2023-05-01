@@ -5,7 +5,7 @@ import CharityList from "../../components/CharityList";
 import Add from "../../components/Add";
 import { useState } from "react";
 
-export default function Charity({ charityList }) {
+const Charity = ({ charityList }) => {
   const [close, setClose] = useState(true);
   return (
     <div>
@@ -16,13 +16,17 @@ export default function Charity({ charityList }) {
       </div>
     </div>
   );
-}
+};
 
 export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:3000/api/charitys");
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_DOMAIN_URL}/api/charitys`
+  );
   return {
     props: {
       charityList: res.data,
     },
   };
 };
+
+export default Charity;

@@ -99,7 +99,7 @@ export const getServerSideProps = async ({ params }) => {
   // console.log(params);
 
   const res = await axios.get(
-    `http://localhost:3000/api/charitys/${params.id}`
+    `${process.env.NEXT_PUBLIC_DOMAIN_URL}/api/charitys/${params.id}`
   );
   // console.log(res.data);
   return {

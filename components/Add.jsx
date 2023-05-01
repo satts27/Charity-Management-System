@@ -32,7 +32,10 @@ const Add = ({ setClose }) => {
         type,
       };
 
-      await axios.post("http://localhost:3000/api/charitys", newCharity);
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_DOMAIN_URL}/api/charitys`,
+        newCharity
+      );
       setClose(true);
     } catch (err) {
       console.log(err);
