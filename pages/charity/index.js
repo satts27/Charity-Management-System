@@ -30,4 +30,3 @@ export const getServerSideProps = async () => {
 };
 
 export default Charity;
-// this is charity page
